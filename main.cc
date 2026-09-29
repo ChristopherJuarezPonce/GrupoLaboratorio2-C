@@ -38,6 +38,8 @@ int main(){
 
     InsertarInicio(&lista, estudiante1);
     InsertarInicio(&lista, estudiante2);
+    EliminarFinal(&lista);
+    Imprimir(lista);
     
     return 0;
 }
