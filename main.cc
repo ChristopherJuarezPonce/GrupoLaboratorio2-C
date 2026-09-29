@@ -17,6 +17,7 @@ struct Nodo {
 
 //Declaraciones de variables doble puntero (**)
 void EliminarFinal(Nodo **lista);
+void Imprimir(Nodo *lista);
 
 int main(){
     return 0;
@@ -48,4 +49,28 @@ void EliminarFinal(Nodo **lista)
     // Desconectamos el último nodo y lo borramos
     temporal->anterior->siguiente = nullptr;
     delete temporal;
+}
+
+// Función para imprimir la lista
+void Imprimir(Nodo *lista)
+{
+    std::cout<<"\nImprimiendo lista ......\n";
+     
+    if (lista == nullptr)
+    {
+        std::cout << "Lista vacia\n";
+        return;
+    }
+
+    struct Nodo *temporal = lista;
+    while (temporal != nullptr)
+    {
+        std::cout << "Nombre Estudiante: " << temporal->estudiante.nombre_estudiante
+                  << " - numero de carnet: " << temporal->estudiante.carnet_estudiante
+                  << " - carrera: " << temporal->estudiante.carrera_estudiante
+                  << " | Dir: " << temporal
+                  << " | Sig: " << temporal->siguiente
+                  << " | Ant: " << temporal->anterior << "\n";
+        temporal = temporal->siguiente;
+    }
 }
