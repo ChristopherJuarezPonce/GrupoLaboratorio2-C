@@ -42,6 +42,25 @@ int main(){
     return 0;
 }
 
+//Funcion para indsertar datos
+
+void InsertarInicio(Nodo **lista, Estudiantes estudiantes)
+{
+    struct Nodo *nuevo_nodo = new Nodo;
+    nuevo_nodo->estudiante = estudiantes; 
+    nuevo_nodo->siguiente = *lista;
+    nuevo_nodo->anterior = nullptr;
+
+    // Si la lista no está vacía, actualizamos el puntero anterior del primer nodo actual
+    if (*lista != nullptr)
+    {
+        (*lista)->anterior = nuevo_nodo;
+    }
+
+    // El nuevo nodo pasa a ser la cabeza de la lista
+    *lista = nuevo_nodo;
+}
+
 // Función para eliminar el último nodo de la lista
 void EliminarFinal(Nodo **lista)
 {
