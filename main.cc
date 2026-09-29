@@ -19,7 +19,26 @@ struct Nodo {
 void EliminarFinal(Nodo **lista);
 void Imprimir(Nodo *lista);
 
+void InsertarInicio(Nodo **lista, Estudiantes estudiantes);
+
+
 int main(){
+
+    Nodo *lista = nullptr;
+    Estudiantes estudiante1, estudiante2;
+
+    estudiante1.nombre_estudiante = "Mercedes Granados";
+    estudiante1.carnet_estudiante = 0020125626;
+    estudiante1.carrera_estudiante = "Informatica";
+
+    estudiante2.nombre_estudiante = "Gerson Segovia";
+    estudiante2.carnet_estudiante = 78712212;
+    estudiante1.carrera_estudiante = "Contabilidad";
+
+
+    InsertarInicio(&lista, estudiante1);
+    InsertarInicio(&lista, estudiante2);
+    
     return 0;
 }
 
