@@ -16,7 +16,36 @@ struct Nodo {
 };
 
 //Declaraciones de variables doble puntero (**)
+void EliminarFinal(Nodo **lista);
 
 int main(){
     return 0;
+}
+
+// Función para eliminar el último nodo de la lista
+void EliminarFinal(Nodo **lista)
+{
+    if (*lista == nullptr)
+    {
+        std::cout << "Lista vacia\n";
+        return;
+    }
+
+    // Si solo hay un elemento
+    if ((*lista)->siguiente == nullptr)
+    {
+        delete *lista;
+        *lista = nullptr;
+        return;
+    }
+
+    struct Nodo *temporal = *lista;
+    while (temporal->siguiente != nullptr)
+    {
+        temporal = temporal->siguiente;
+    }
+
+    // Desconectamos el último nodo y lo borramos
+    temporal->anterior->siguiente = nullptr;
+    delete temporal;
 }
